@@ -19,37 +19,70 @@ class GameHandler extends Thread {
 
 		gameWindow.addKeyListener((KeyListener) new KBListener());
 
-		moveSnake();
+		game();
 	}
 
-	private void moveSnake() {
+	private void game() {
 		while(true) {
 			ent.setSnakeHeading(dx, dy);
-			ent.updateSnakeArray();
 
-			for (int i = 0; i < width; i++) {
-				for (int j = 0; j < height; j++) {
-					if (ent.isSnake(i,j)) {
-						//gameWindow.add(new Pixel(snakeColor));
-						System.out.print("x = " + i + ", y = " + j + "\n");
-					}
-					else if (ent.isFood(i,j)) {
-						//gameWindow.add(new Pixel(foodColor));
-					}
-					else {
-						//gameWindow.add(new Pixel(backgroundColor));
-					}
-				}
-			}
+			if(checkCollisionAndMove()) break;
 
+			redraw();
 
-			try {
-				sleep(speed);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			System.out.print("HEAD x = " + ent.getHead().getX() + ", y = " + ent.getHead().getY() + "\nSIZE = " + ent.getSize() + "\nFOOD x = " + ent.getFood().getX() + ", y = " + ent.getFood().getY() + "\n");
+
+			wait(speed);
+
 			gameWindow.getContentPane().removeAll();
 			System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+		}
+
+		System.out.println("GAME OVER");
+	}
+
+	private boolean checkCollisionAndMove() {
+		if(ent.isSnake(
+			ent.getHead().getX() + ent.getHead().getDx(),
+			ent.getHead().getY() + ent.getHead().getDy())) {
+				return true;
+		}
+		if(ent.getHead().getX() +
+			ent.getHead().getDx() ==
+			ent.getFood().getX() &&
+			ent.getHead().getY() +
+			ent.getHead().getDy() ==
+			ent.getFood().getY()){
+				ent.updateSnakeArray(true);
+		}
+		else {
+			ent.updateSnakeArray();
+		}
+
+		return false;
+	}
+
+	private void redraw() {
+		for (int i = 0; i < width; i++) {
+			for (int j = 0; j < height; j++) {
+				if (ent.isSnake(i,j)) {
+					//gameWindow.add(new Pixel(snakeColor));
+				}
+				else if (ent.isFood(i,j)) {
+					//gameWindow.add(new Pixel(foodColor));
+				}
+				else {
+					//gameWindow.add(new Pixel(backgroundColor));
+				}
+			}
+		}
+	}
+
+	private void wait(int t) {
+		try {
+			sleep(t);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 }

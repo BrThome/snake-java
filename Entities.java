@@ -40,9 +40,17 @@ class Entities {
 		return snake[size - 1];
 	}
 
-	public void updateSnakeArray() {
-		for(int i = size - 1; i > 0; i--) {
-			snake[i] = snake[i - 1];
+	public void updateSnakeArray(boolean grow) {
+		if(grow) {
+			if(size == GameHandler.height * GameHandler.width) return;
+			size++;
+			for(int i = size - 1; i > 0; i--) {
+				snake[i] = snake[i - 1];
+			}
+		} else {
+			for(int i = size - 1; i > 0; i--) {
+				snake[i] = snake[i - 1];
+			}
 		}
 
 		snake[0].setX((snake[1].getX() + snake[1].getDx()) % GameHandler.width);
@@ -54,6 +62,10 @@ class Entities {
 		if(snake[0].getY() < 0) {
 			snake[0].setY(GameHandler.width - 1);
 		}
+	}
+
+	public void updateSnakeArray() {
+		updateSnakeArray(false);
 	}
 
 	public Coord getFood() {

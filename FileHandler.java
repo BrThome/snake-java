@@ -2,7 +2,6 @@ import java.io.*;
 
 class FileHandler {
 
-        private static File player;
         private static FileOutputStream fileOut;
         private static ObjectOutputStream out;
         private static String playerL;
@@ -11,8 +10,7 @@ class FileHandler {
 
         public static void saveFile(Entities ent) {
                 try {
-                        player = new File(System.getProperty("user.home"));
-                        fileOut = new FileOutputStream(player + "/desktop/JSnake.ser");
+                        fileOut = new FileOutputStream("JSnake.res");
                         out = new ObjectOutputStream(fileOut);
                         out.writeObject(ent);
                         out.close();
@@ -24,8 +22,7 @@ class FileHandler {
 
         public static void loadFile(Entities ent) {
                 try {
-                        playerL = System.getProperty("user.home");
-                        fileIn = new FileInputStream(player + "/desktop/JSnake.ser");
+                        fileIn = new FileInputStream("JSnake.res");
                         in = new ObjectInputStream(fileIn);
                         ent = (Entities)in.readObject();
                         in.close();

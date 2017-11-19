@@ -1,8 +1,7 @@
 import java.util.Random;
 import javax.swing.JPanel;
 
-class Entities {
-
+class Entities{
 	private Coord[] snake;
 	private int size;
 	private Coord food;
@@ -63,11 +62,11 @@ class Entities {
 			snake[0].setY(GameHandler.width - 1);
 		}
 
-		System.out.print("Array = ");
-		for(int i=0;i<size;i++){
-			System.out.print(snake[i].getX() + "." + snake[i].getY() + " - ");
-		}
-		System.out.print("\n");
+		// System.out.print("Array = ");
+		// for(int i=0;i<size;i++){
+		// 	System.out.print(snake[i].getX() + "." + snake[i].getY() + " - ");
+		// }
+		// System.out.print("\n");
 	}
 
 	public void updateSnakeArray() {

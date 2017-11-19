@@ -1,4 +1,4 @@
-class Coord {
+class Coord{
 
 	private int x;
 	private int y;

@@ -10,17 +10,10 @@ class Entities {
 	public Entities() {
 		snake = new Coord [Window.height * Window.width];
 		size = 3;
-<<<<<<< HEAD
-		Random rand = new Random();
-		//food = new Coord(rand.nextInt(Window.width), rand.nextInt(Window.height));
-		food = new Coord(1,1);
-		for (int i = 0; i < size; i++) {
-=======
 
 		setFood();
 
 		for(int i = 0; i < size; i++){
->>>>>>> ca6f7ea71b852252a62f9b38fc8feaaad6b53623
 			snake[i] = new Coord(5 - i, 5, 1, 0);
 		}
 	}

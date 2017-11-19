@@ -51,6 +51,8 @@ class GameHandler extends Thread {
 			//System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		}
 		System.out.println("GAME OVER");
+		ent = new Entities();
+		FileHandler.saveFile(ent);
 		//new GameHandler();
 		gameWindow.kill();
 	}

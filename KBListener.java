@@ -30,11 +30,10 @@ public class KBListener extends KeyAdapter {
 			break;
 		case KeyEvent.VK_F1:
 			FileHandler.saveFile(GameHandler.ent);
-			System.out.println("Saved!!"); // Apagar depois
 			break;
 		case KeyEvent.VK_F5:
 			GameHandler.ent = FileHandler.loadFile();
-			System.out.println("Loaded!!"); // Apagar depois
+			System.out.println("Loaded!!");
 			break;
 		case KeyEvent.VK_SPACE:
 			GameHandler.paused = !GameHandler.paused;

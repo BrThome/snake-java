@@ -13,8 +13,6 @@ class Entities implements Serializable{
 		this.snake = snake;
 		this.size = size;
 		this.food = food;
-
-		//if(snake[0].getX)
 	}
 
 	public Entities() {
@@ -107,8 +105,7 @@ class Entities implements Serializable{
 		this.size = size;
 	}
 
-	public boolean isSnake(int x, int y) {
-		int i = 0;
+	public boolean isSnake(int x, int y, int i) {
 		while (i < size) {
 			if (snake[i].getX() == x && snake[i].getY() == y) {
 				return true;
@@ -116,6 +113,10 @@ class Entities implements Serializable{
 			i++;
 		}
 		return false;
+	}
+
+	public boolean isSnake(int x, int y) {
+		return isSnake(x, y, 0);
 	}
 
 	public boolean isFood(int x, int y) {

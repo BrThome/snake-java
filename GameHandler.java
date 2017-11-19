@@ -19,27 +19,28 @@ class GameHandler extends Thread {
 
 	public GameHandler() {
 		gameWindow = new Window(); // Gera uma nova partida
-		
-		
+
+
 		Entities load = FileHandler.loadFile();
 		if(load != null) {
 			ent = load;
-			dx = ent.getHead().getDx();
-			dy = ent.getHead().getDy();
+			if(dx == ent.getHead().getDx() * -1) dx *= -1;
+			else if(dy == ent.getHead().getDy() * -1) dy *= -1;
 		} else {
 			ent = new Entities();
 		}
 		gameWindow.addKeyListener((KeyListener) new KBListener());
-		
+
 		game();
 	}
 
 	private void game() {
 		while(true) {
-			ent.setSnakeHeading(dx, dy);
 
 			if(!paused)
 				if(checkCollisionAndMove()) break;
+
+			ent.setSnakeHeading(dx, dy);
 
 			redraw();
 
@@ -52,26 +53,24 @@ class GameHandler extends Thread {
 		}
 		System.out.println("GAME OVER");
 		ent = new Entities();
-		FileHandler.saveFile(ent);
+		//FileHandler.saveFile(ent);
+		FileHandler.delSave();
 		//new GameHandler();
 		gameWindow.kill();
 	}
 
 	private boolean checkCollisionAndMove() {
-		int x = ent.getHead().getX() + ent.getHead().getDx() % GameHandler.width;
-		int y = ent.getHead().getY() + ent.getHead().getDy()  % GameHandler.height;
+		int x = ent.getHead().getX() % GameHandler.width;
+		int y = ent.getHead().getY() % GameHandler.height;
 
 		if(ent.isSnake(
 			((x >= 0)? x : (GameHandler.width - 1)),
-			((y >= 0)? y : (GameHandler.height - 1)))){
+			((y >= 0)? y : (GameHandler.height - 1)), 1)){
 				return true;
 		}
-		if(ent.getHead().getX() +
-			ent.getHead().getDx() ==
-			ent.getFood().getX() &&
-			ent.getHead().getY() +
-			ent.getHead().getDy() ==
-			ent.getFood().getY()){
+		if(ent.isFood(
+			((x >= 0)? x : (GameHandler.width - 1)),
+			((y >= 0)? y : (GameHandler.height - 1)))){
 				ent.setFood();
 				ent.updateSnakeArray(true);
 		}

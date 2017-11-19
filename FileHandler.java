@@ -15,7 +15,7 @@ class FileHandler {
                 out.writeObject(ent);
                 out.close();
                 fileOut.close();
-                System.out.printf("Dados serializados foram salvos em: " + filePath);
+                System.out.printf("Data saved to \"" + filePath + "\"");
              } catch (IOException i) {
                 i.printStackTrace();
              }
@@ -30,16 +30,21 @@ class FileHandler {
             	in.close();
             	fileIn.close();
             } catch (FileNotFoundException f) {
-            	System.err.println("Arquivo não encontrado. Criando novo jogo.");
+            	System.err.println("File not found. Starting new game.");
             	return null;
             } catch (IOException i) {
             	System.err.println(i.getMessage());
             	return null;
             } catch (ClassNotFoundException c) {
-            	System.out.println("Classe Entities não foi encontrada.");
+            	System.out.println("Entities Class not found.");
             	c.printStackTrace();
             	return null;
             }
             return e;
         }
+
+		public static void delSave() {
+			File f = new File(filePath);
+			f.delete();
+		}
 }

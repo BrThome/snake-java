@@ -1,7 +1,7 @@
 import java.io.Serializable;
 
 class Coord implements Serializable{
-
+	private static final long serialVersionUID = 687245L;
 	private int x;
 	private int y;
 	private int dx;

@@ -7,21 +7,24 @@ class Entities {
 	private int size;
 	private Coord food;
 
-	public Entities() {
-		snake = new Coord [Window.height * Window.width];
-		size = 3;
-
-		setFood();
-
-		for(int i = 0; i < size; i++){
-			snake[i] = new Coord(5 - i, 5, 1, 0);
-		}
-	}
+	private Random rand = new Random();
 
 	public Entities(Coord[] snake, int size, Coord food) {
 		this.snake = snake;
 		this.size = size;
 		this.food = food;
+	}
+
+	public Entities() {
+		snake = new Coord [Window.height * Window.width];
+		size = 3;
+
+		for(int i = 0; i < size; i++){
+			snake[i] = new Coord(5 - i, 5, 1, 0);
+		}
+
+		food = new Coord(33, 33);
+		setFood();
 	}
 
 	public Coord getHead() {
@@ -50,7 +53,6 @@ class Entities {
 	}
 
 	public void setFood() {
-		Random rand = new Random();
 		int x, y, limit = 0;
 		do {
 			x = rand.nextInt(Window.width);

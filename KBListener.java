@@ -1,19 +1,19 @@
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class KeyListener extends KeyAdapter {
-	public void directions(KeyEvent e) {
+public class KBListener extends KeyAdapter {
+	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
-			case 39: // Muda a direçao da Snake para a direita.
+			case 39: // Muda a direcao da Snake para a direita.
 				System.out.print("Direita!");
 				break;
-			case 38: // Muda a direçao da Snake para cima.
+			case 38: // Muda a direcao da Snake para cima.
 				System.out.print("Cima!");
 				break;
-			case 37: // Muda a direçao da Skane para a esquerda;
+			case 37: // Muda a direcao da Skane para a esquerda;
 				System.out.print("Esquerda!");
 				break;
-			case 40: // Muda a direçao da Snake para baixo.
+			case 40: // Muda a direcao da Snake para baixo.
 				System.out.print("Baixo!");
 				break;
 			default:

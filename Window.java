@@ -1,6 +1,7 @@
 import java.awt.GridLayout;
 import javax.swing.JFrame;
 import java.awt.Color;
+import java.awt.event.KeyListener;
 
 class Window extends JFrame {
 
@@ -8,7 +9,7 @@ class Window extends JFrame {
 	public static int width = 40;
 	public static int height = 40;
 
-	public Window(){
+	public Window() {
 
 		this.getContentPane().setLayout(new GridLayout(width, height,0,0));
 
@@ -19,5 +20,7 @@ class Window extends JFrame {
 		this.setSize(height * 20, width * 20);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		this.addKeyListener((KeyListener) new KBListener());
 	}
 }

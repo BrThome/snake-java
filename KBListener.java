@@ -33,6 +33,12 @@ public class KBListener extends KeyAdapter {
 					GameHandler.dy = 1;
 				}
 				break;
+			case 32:
+				System.out.println("Saved!!");
+				break;
+			case 8:
+				System.out.println("Loaded!!");
+				break;
 			default:
 				break;
 		}

@@ -41,24 +41,6 @@ class Entities {
 	}
 
 	public void updateSnakeArray(boolean grow) {
-		// if(grow) {
-		// 	if(size == GameHandler.height * GameHandler.width) return;
-		// 	size++;
-		// 	for(int i = size - 1; i > 0; i--) {
-		// 		snake[i].setX(snake[i - 1].getX());
-		// 		snake[i].setY(snake[i - 1].getY());
-		// 		snake[i].setDx(snake[i - 1].getDx());
-		// 		snake[i].setDy(snake[i - 1].getDy());
-		// 	}
-		// } else {
-		// 	for(int i = size - 1; i > 0; i--) {
-		// 		snake[i].setX(snake[i - 1].getX());
-		// 		snake[i].setY(snake[i - 1].getY());
-		// 		snake[i].setDx(snake[i - 1].getDx());
-		// 		snake[i].setDy(snake[i - 1].getDy());
-		// 	}
-		// }
-
 		if(grow) {
 			if(size == GameHandler.height * GameHandler.width) return;
 			size++;

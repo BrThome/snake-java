@@ -39,6 +39,7 @@ class GameHandler extends Thread {
 		}
 
 		System.out.println("GAME OVER");
+		gameWindow.kill();
 	}
 
 	private boolean checkCollisionAndMove() {
@@ -46,8 +47,8 @@ class GameHandler extends Thread {
 		int y = ent.getHead().getY() + ent.getHead().getDy()  % GameHandler.height;
 
 		if(ent.isSnake(
-			x >= 0? x : GameHandler.width - 1,
-			y >= 0? y : GameHandler.height - 1)){
+			((x >= 0)? x : (GameHandler.width - 1)),
+			((y >= 0)? y : (GameHandler.height - 1)))){
 				return true;
 		}
 		if(ent.getHead().getX() +

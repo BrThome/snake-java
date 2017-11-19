@@ -14,4 +14,8 @@ class Window extends JFrame {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+
+	public void kill() {
+		this.dispose();
+	}
 }

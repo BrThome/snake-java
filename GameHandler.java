@@ -4,10 +4,10 @@ import java.awt.Color;
 
 class GameHandler extends Thread {
 
-	private int speed = 75; // Quanto menor, mais rapido.
+	private int speed = 50; // Quanto menor, mais rapido.
 
-	public static int width = 20;
-	public static int height = 20;
+	public static int width = 25;
+	public static int height = 25;
 
 	public static int dx = 1, dy = 0;
 	public static boolean paused = false;

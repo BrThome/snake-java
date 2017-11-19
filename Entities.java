@@ -1,7 +1,7 @@
 import java.util.Random;
 import javax.swing.JPanel;
 
-class Entities{
+class Entities implements java.io.Serializable {
 	private Coord[] snake;
 	private int size;
 	private Coord food;

@@ -1,4 +1,5 @@
 import java.awt.event.KeyListener;
+
 import java.awt.Color;
 
 class GameHandler extends Thread {
@@ -18,10 +19,16 @@ class GameHandler extends Thread {
 
 	public GameHandler() {
 		gameWindow = new Window(); // Gera uma nova partida
-		ent = new Entities();
-
+		
+		
+		Entities load = FileHandler.loadFile();
+		if(load != null) {
+			ent = load;
+		} else {
+			ent = new Entities();
+		}
 		gameWindow.addKeyListener((KeyListener) new KBListener());
-
+		
 		game();
 	}
 
@@ -41,7 +48,7 @@ class GameHandler extends Thread {
 			gameWindow.getContentPane().removeAll();
 			//System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		}
-
+		FileHandler.deleteSave();
 		System.out.println("GAME OVER");
 		gameWindow.kill();
 	}

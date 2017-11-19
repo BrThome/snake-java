@@ -1,4 +1,6 @@
-class Coord{
+import java.io.Serializable;
+
+class Coord implements Serializable{
 
 	private int x;
 	private int y;

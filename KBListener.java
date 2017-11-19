@@ -8,28 +8,32 @@ public class KBListener extends KeyAdapter {
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
 			case 39: // Muda a direcao da Snake para a direita.
-				System.out.println("Direita!");
-				// if(ent.getHead().getDx() != -1) {
-				// 	ent.setSnakeHeading(1, 0);
-				// }
+				System.out.print("Direita!");
+				if(GameHandler.dx != -1) {
+					GameHandler.dx = 1;
+					GameHandler.dy = 0;
+				}
 				break;
 			case 38: // Muda a direcao da Snake para cima.
-				System.out.println("Cima!");
-				// if(ent.getHead().getDy() != 1) {
-				// 	ent.setSnakeHeading(0, -1);
-				// }
+				System.out.print("Cima!");
+				if(GameHandler.dy != 1) {
+					GameHandler.dx = 0;
+					GameHandler.dy = -1;
+				}
 				break;
 			case 37: // Muda a direcao da Snake para a esquerda;
-				System.out.println("Esquerda!");
-				// if(ent.getHead().getDx() != 1) {
-				// 	ent.setSnakeHeading(-1, 0);
-				// }
+				System.out.print("Esquerda!");
+				if(GameHandler.dx != 1) {
+					GameHandler.dx = -1;
+					GameHandler.dy = 0;
+				}
 				break;
 			case 40: // Muda a direcao da Snake para baixo.
-				System.out.println("Baixo!");
-				// if(ent.getHead().getDy() != -1) {
-				// 	ent.setSnakeHeading(0, 1);
-				// }
+				System.out.print("Baixo!");
+				if(GameHandler.dy != -1) {
+					GameHandler.dx = 0;
+					GameHandler.dy = 1;
+				}
 				break;
 			case 32:
 				System.out.println("Saved!!");

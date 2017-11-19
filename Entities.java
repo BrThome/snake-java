@@ -41,16 +41,34 @@ class Entities {
 	}
 
 	public void updateSnakeArray(boolean grow) {
+		// if(grow) {
+		// 	if(size == GameHandler.height * GameHandler.width) return;
+		// 	size++;
+		// 	for(int i = size - 1; i > 0; i--) {
+		// 		snake[i].setX(snake[i - 1].getX());
+		// 		snake[i].setY(snake[i - 1].getY());
+		// 		snake[i].setDx(snake[i - 1].getDx());
+		// 		snake[i].setDy(snake[i - 1].getDy());
+		// 	}
+		// } else {
+		// 	for(int i = size - 1; i > 0; i--) {
+		// 		snake[i].setX(snake[i - 1].getX());
+		// 		snake[i].setY(snake[i - 1].getY());
+		// 		snake[i].setDx(snake[i - 1].getDx());
+		// 		snake[i].setDy(snake[i - 1].getDy());
+		// 	}
+		// }
+
 		if(grow) {
 			if(size == GameHandler.height * GameHandler.width) return;
 			size++;
-			for(int i = size - 1; i > 0; i--) {
-				snake[i] = snake[i - 1];
-			}
-		} else {
-			for(int i = size - 1; i > 0; i--) {
-				snake[i] = snake[i - 1];
-			}
+			snake[size-1] = new Coord(0,0);
+		}
+		for(int i = size - 1; i > 0; i--) {
+			snake[i].setX(snake[i - 1].getX());
+			snake[i].setY(snake[i - 1].getY());
+			snake[i].setDx(snake[i - 1].getDx());
+			snake[i].setDy(snake[i - 1].getDy());
 		}
 
 		snake[0].setX((snake[1].getX() + snake[1].getDx()) % GameHandler.width);
@@ -62,6 +80,12 @@ class Entities {
 		if(snake[0].getY() < 0) {
 			snake[0].setY(GameHandler.width - 1);
 		}
+
+		System.out.print("Array = ");
+		for(int i=0;i<size;i++){
+			System.out.print(snake[i].getX() + "." + snake[i].getY() + " - ");
+		}
+		System.out.print("\n");
 	}
 
 	public void updateSnakeArray() {

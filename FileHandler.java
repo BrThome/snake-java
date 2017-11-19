@@ -5,13 +5,13 @@ class FileHandler {
         private static File player;
         private static FileOutputStream fileOut;
         private static ObjectOutputStream out;
-        private static String player;
+        private static String playerL;
         private static FileInputStream fileIn;
         private static ObjectInputStream in;
 
-        public void saveFile() {
+        public void saveFile(Entities ent) {
                 try {
-                        player = new file(System.getProperty("user.home"));
+                        player = new File(System.getProperty("user.home"));
                         fileOut = new FileOutputStream(player + "/desktop/JSnake.ser");
                         out = new ObjectOutputStream(fileOut);
                         out.writeObject(ent);
@@ -22,15 +22,15 @@ class FileHandler {
                 }
         }
 
-        public void loadFile() {
+        public void loadFile(Entities ent) {
                 try {
-                        player = System.getProperty("user.home");
+                        playerL = System.getProperty("user.home");
                         fileIn = new FileInputStream(player + "/desktop/JSnake.ser");
                         in = new ObjectInputStream(fileIn);
-                        ent = (ent)in.readObject();
-                        in.close()
+                        ent = (Entities)in.readObject();
+                        in.close();
                         fileIn.close();
-                } catch (IOException) {
+                } catch (IOException i) {
                         i.printStackTrace();
                         return;
                 } catch (ClassNotFoundException c) {

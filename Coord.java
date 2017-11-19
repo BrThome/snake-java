@@ -4,6 +4,18 @@ class Coord {
 	private int dx;
 	private int dy;
 
+	public Coord(int x, int y, int dx, int dy) {
+		this.x = x;
+		this.y = y;
+		this.dx = dx;
+		this.dy = dy;
+	}
+
+	public Coord(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
 	public int getX(){
 		return this.x;
 	}

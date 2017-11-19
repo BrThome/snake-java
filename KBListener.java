@@ -6,28 +6,34 @@ public class KBListener extends KeyAdapter {
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
 			case 39: // Muda a direcao da Snake para a direita.
-				System.out.print("Direita!");
+				System.out.println("Direita!");
 				// if(ent.getHead().getDx() != -1) {
 				// 	ent.setSnakeHeading(1, 0);
 				// }
 				break;
 			case 38: // Muda a direcao da Snake para cima.
-				System.out.print("Cima!");
+				System.out.println("Cima!");
 				// if(ent.getHead().getDy() != 1) {
 				// 	ent.setSnakeHeading(0, -1);
 				// }
 				break;
 			case 37: // Muda a direcao da Snake para a esquerda;
-				System.out.print("Esquerda!");
+				System.out.println("Esquerda!");
 				// if(ent.getHead().getDx() != 1) {
 				// 	ent.setSnakeHeading(-1, 0);
 				// }
 				break;
 			case 40: // Muda a direcao da Snake para baixo.
-				System.out.print("Baixo!");
+				System.out.println("Baixo!");
 				// if(ent.getHead().getDy() != -1) {
 				// 	ent.setSnakeHeading(0, 1);
 				// }
+				break;
+			case 32:
+				System.out.println("Saved!!");
+				break;
+			case 8:
+				System.out.println("Loaded!!");
 				break;
 			default:
 				break;

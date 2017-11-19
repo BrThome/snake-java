@@ -1,8 +1,8 @@
 import java.util.Random;
+import java.io.Serializable;
 import javax.swing.JPanel;
 
-class Entities{
-	private static final long serialVersionUID = 8168L;
+class Entities implements Serializable{
 	private Coord[] snake;
 	private int size;
 	private Coord food;

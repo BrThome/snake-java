@@ -19,7 +19,7 @@ class Entities {
 		snake = new Coord [GameHandler.height * GameHandler.width];
 		size = 3;
 
-		for(int i = 0; i < size; i++){
+		for(int i = 0; i < size; i++) {
 			snake[i] = new Coord(5 - i, 5, 1, 0);
 		}
 
@@ -68,8 +68,8 @@ class Entities {
 		} while(isSnake(x, y) && limit++ < 500);
 
 		if(limit == 500) {
-			for(x = 0; x < GameHandler.width; x++){
-				for(y = 0; y < GameHandler.width; y++){
+			for(x = 0; x < GameHandler.width; x++) {
+				for(y = 0; y < GameHandler.width; y++) {
 					if(!isSnake(x, y)) break;
 				}
 			}
@@ -89,7 +89,7 @@ class Entities {
 
 	public boolean isSnake(int x, int y) {
 		int i = 0;
-		while (i < size){
+		while (i < size) {
 			if (snake[i].getX() == x && snake[i].getY() == y) {
 				return true;
 			}

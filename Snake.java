@@ -8,7 +8,7 @@ class Snake {
 
 		size = 3;
 
-		for(int i = 0; i < 3; i++){
+		for(int i = 0; i < 3; i++) {
 			snake[i].setX(5 - i);
 			snake[i].setY(5);
 			snake[i].setDx(1);
@@ -16,7 +16,7 @@ class Snake {
 		}
 	}
 
-	public Snake(Coord[] snake, int size){
+	public Snake(Coord[] snake, int size) {
 		this.snake = snake;
 		this.size = size;
 	}

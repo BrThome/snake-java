@@ -42,13 +42,4 @@ class FileHandler {
             }
             return e;
         }
-        
-        public static void deleteSave() {
-        	Path path = Paths.get(filePath);
-        	try {
-				Files.delete(path);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-        }
 }

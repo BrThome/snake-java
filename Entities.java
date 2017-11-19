@@ -1,11 +1,8 @@
 import java.util.Random;
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 class Entities implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5826701782219041401L;
 	private Coord[] snake;
 	private int size;
 	private Coord food;

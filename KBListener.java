@@ -34,8 +34,6 @@ public class KBListener extends KeyAdapter {
 			break;
 		case KeyEvent.VK_F5:
 			GameHandler.ent = FileHandler.loadFile();
-			GameHandler.dx = GameHandler.ent.getHead().getDx();
-			GameHandler.dy = GameHandler.ent.getHead().getDy();
 			System.out.println("Loaded!!"); // Apagar depois
 			break;
 		case KeyEvent.VK_SPACE:

@@ -50,8 +50,8 @@ class GameHandler extends Thread {
 			gameWindow.getContentPane().removeAll();
 			//System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		}
-		FileHandler.deleteSave();
 		System.out.println("GAME OVER");
+		//new GameHandler();
 		gameWindow.kill();
 	}
 

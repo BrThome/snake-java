@@ -1,12 +1,13 @@
 import java.awt.event.KeyListener;
+
 import java.awt.Color;
 
 class GameHandler extends Thread {
 
-	private int speed = 50; // Quanto menor, mais rapido.
+	private int speed = 75; // Quanto menor, mais rapido.
 
-	public static int width = 25;
-	public static int height = 25;
+	public static int width = 20;
+	public static int height = 20;
 
 	public static int dx = 1, dy = 0;
 	public static boolean paused = false;
@@ -18,10 +19,16 @@ class GameHandler extends Thread {
 
 	public GameHandler() {
 		gameWindow = new Window(); // Gera uma nova partida
-		ent = new Entities();
-
+		
+		
+		Entities load = FileHandler.loadFile();
+		if(load != null) {
+			ent = load;
+		} else {
+			ent = new Entities();
+		}
 		gameWindow.addKeyListener((KeyListener) new KBListener());
-
+		
 		game();
 	}
 
@@ -41,8 +48,8 @@ class GameHandler extends Thread {
 			gameWindow.getContentPane().removeAll();
 			//System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		}
-
-		System.out.println("GAME OVER\nSize = " + ent.getSize());
+		FileHandler.deleteSave();
+		System.out.println("GAME OVER");
 		gameWindow.kill();
 	}
 

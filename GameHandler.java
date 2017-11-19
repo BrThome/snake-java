@@ -24,6 +24,8 @@ class GameHandler extends Thread {
 		Entities load = FileHandler.loadFile();
 		if(load != null) {
 			ent = load;
+			dx = ent.getHead().getDx();
+			dy = ent.getHead().getDy();
 		} else {
 			ent = new Entities();
 		}

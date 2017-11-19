@@ -9,9 +9,9 @@ class GameHandler extends Thread {
 	public static int height = 40;
 	public static int dx = 1, dy = 0;
 	public static Color snakeColor = Color.green, foodColor = Color.red, backgroundColor = Color.black;
+	public static Entities ent;
 
 	private Window  gameWindow;
-	private Entities ent;
 
 	public GameHandler() {
 		gameWindow = new Window(); // Gera uma nova partida

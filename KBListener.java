@@ -36,18 +36,23 @@ public class KBListener extends KeyAdapter {
 			}
 			break;
 		case 32:
-			System.out.println("Saved!!");
+			FileHandler.saveFile(GameHandler.ent);
+			System.out.println("Saved!!"); // Apagar depois
 			break;
 		case 8:
-			System.out.println("Loaded!!");
+			FileHandler.loadFile(GameHandler.ent);
+			System.out.println("Loaded!!"); // Apagar depois
 			break;
 		case 80:
 			if (playPause % 2 == 0) {
 				System.out.println("Pause!");
+				playPause++;
+				// Adicionar o método de pausa do game
 			} else {
 				System.out.println("Play!");
+				playPause--; // Garante que a variável permaneça int.
+				// Adicionar o método de play do game
 			}
-			playPause++;
 			break;
 		default:
 			break;

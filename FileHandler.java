@@ -9,7 +9,7 @@ class FileHandler {
         private static FileInputStream fileIn;
         private static ObjectInputStream in;
 
-        public void saveFile(Entities ent) {
+        public static void saveFile(Entities ent) {
                 try {
                         player = new File(System.getProperty("user.home"));
                         fileOut = new FileOutputStream(player + "/desktop/JSnake.ser");
@@ -22,7 +22,7 @@ class FileHandler {
                 }
         }
 
-        public void loadFile(Entities ent) {
+        public static void loadFile(Entities ent) {
                 try {
                         playerL = System.getProperty("user.home");
                         fileIn = new FileInputStream(player + "/desktop/JSnake.ser");

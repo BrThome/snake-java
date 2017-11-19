@@ -1,7 +1,8 @@
 import java.util.Random;
 import javax.swing.JPanel;
+import java.io.Serializable;
 
-class Entities{
+class Entities implements Serializable{
 	private static final long serialVersionUID = 8168L;
 	private Coord[] snake;
 	private int size;
@@ -13,6 +14,8 @@ class Entities{
 		this.snake = snake;
 		this.size = size;
 		this.food = food;
+
+		//if(snake[0].getX)
 	}
 
 	public Entities() {

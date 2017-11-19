@@ -16,7 +16,7 @@ class Entities {
 	}
 
 	public Entities() {
-		snake = new Coord [Window.height * Window.width];
+		snake = new Coord [GameHandler.height * GameHandler.width];
 		size = 3;
 
 		for(int i = 0; i < size; i++){
@@ -44,8 +44,16 @@ class Entities {
 		for(int i = size - 1; i > 0; i--) {
 			snake[i] = snake[i - 1];
 		}
-		snake[0].setX(snake[1].getX() + snake[1].getDx());
-		snake[0].setY(snake[1].getY() + snake[1].getDy());
+
+		snake[0].setX((snake[1].getX() + snake[1].getDx()) % GameHandler.width);
+		if(snake[0].getX() < 0) {
+			snake[0].setX(GameHandler.width - 1);
+		}
+
+		snake[0].setY((snake[1].getY() + snake[1].getDy()) % GameHandler.height);
+		if(snake[0].getY() < 0) {
+			snake[0].setY(GameHandler.width - 1);
+		}
 	}
 
 	public Coord getFood() {
@@ -55,13 +63,13 @@ class Entities {
 	public void setFood() {
 		int x, y, limit = 0;
 		do {
-			x = rand.nextInt(Window.width);
-			y = rand.nextInt(Window.height);
+			x = rand.nextInt(GameHandler.width);
+			y = rand.nextInt(GameHandler.height);
 		} while(isSnake(x, y) && limit++ < 500);
 
 		if(limit == 500) {
-			for(x = 0; x < Window.width; x++){
-				for(y = 0; y < Window.width; y++){
+			for(x = 0; x < GameHandler.width; x++){
+				for(y = 0; y < GameHandler.width; y++){
 					if(!isSnake(x, y)) break;
 				}
 			}

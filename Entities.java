@@ -59,7 +59,7 @@ class Entities{
 
 		snake[0].setY((snake[1].getY() + snake[1].getDy()) % GameHandler.height);
 		if(snake[0].getY() < 0) {
-			snake[0].setY(GameHandler.width - 1);
+			snake[0].setY(GameHandler.height - 1);
 		}
 
 		// System.out.print("Array = ");
@@ -86,7 +86,7 @@ class Entities{
 
 		if(limit == 500) {
 			for(x = 0; x < GameHandler.width; x++) {
-				for(y = 0; y < GameHandler.width; y++) {
+				for(y = 0; y < GameHandler.height; y++) {
 					if(!isSnake(x, y)) break;
 				}
 			}

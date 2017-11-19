@@ -3,6 +3,8 @@ import java.awt.event.KeyEvent;
 
 public class KBListener extends KeyAdapter {
 
+	private int playPause = 0;
+
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
 			case 39: // Muda a direcao da Snake para a direita.
@@ -34,6 +36,14 @@ public class KBListener extends KeyAdapter {
 				break;
 			case 8:
 				System.out.println("Loaded!!");
+				break;
+			case 80:
+				if (playPause % 2 == 0) {
+					System.out.println("Pause!");
+				} else {
+					System.out.println("Play!");
+				}
+				playPause++;
 				break;
 			default:
 				break;

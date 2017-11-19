@@ -81,8 +81,8 @@ class Entities {
 
 	public boolean isSnake(int x, int y) {
 		int i = 0;
-		while(i < size){
-			if(snake[i].getX() == x && snake[i].getY() == y) {
+		while (i < size){
+			if (snake[i].getX() == x && snake[i].getY() == y) {
 				return true;
 			}
 			i++;
@@ -91,7 +91,7 @@ class Entities {
 	}
 
 	public boolean isFood(int x, int y) {
-		if(food.getX() == x && food.getY() == y) {
+		if (food.getX() == x && food.getY() == y) {
 			return true;
 		}
 		return false;

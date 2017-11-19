@@ -2,6 +2,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class KBListener extends KeyAdapter {
+
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
 			case 39: // Muda a direcao da Snake para a direita.

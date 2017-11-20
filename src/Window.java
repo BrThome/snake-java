@@ -1,3 +1,5 @@
+package src;
+
 import java.awt.GridLayout;
 import javax.swing.JFrame;
 import java.awt.Color;

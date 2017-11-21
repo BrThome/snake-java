@@ -1,9 +1,6 @@
 package src;
 
 import java.awt.event.KeyListener;
-
-import javax.swing.JLabel;
-
 import java.awt.Color;
 
 class GameHandler extends Thread {

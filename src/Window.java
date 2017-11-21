@@ -2,11 +2,7 @@ package src;
 
 import java.awt.GridLayout;
 import javax.swing.JFrame;
-
-import com.sun.glass.ui.Application;
-
 import java.awt.Color;
-
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 

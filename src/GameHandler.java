@@ -24,12 +24,11 @@ class GameHandler extends Thread {
 	public GameHandler() {
 		gameWindow = new Window(); // Gera nova janela a qual o jogo sera executado em
 		
-		Entities load = FileHandler.loadFile(); // Tenta carregar um save em uma variável entidades
-		if(load != null) {
+		/*Entities load = FileHandler.loadFile(); // Tenta carregar um save em uma variável entidades
+		if(load != null) 
 			ent = load; // se a entidade buscada do arquivo for valida, as entidades do jogo se tornam aquelas
-		} else {
+		else*/
 			ent = new Entities(); // caso contrario é gerado uma nova "entidades", um jogo limpo
-		}
 		
 		gameWindow.addKeyListener((KeyListener) new KBListener()); // Adiciona à janela de jogo controles de teclado, estes são lidados com no KBListener.java
 
@@ -53,10 +52,13 @@ class GameHandler extends Thread {
 			//System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		}
 		System.out.println("GAME OVER");
-
-		FileHandler.saveFile(new Entities());
+		/*
+		FileHandler.saveFile(new Entities());*/
+		
 		//FileHandler.delSave();
+		
 		//new GameHandler();
+		
 		gameWindow.kill();
 	}
 

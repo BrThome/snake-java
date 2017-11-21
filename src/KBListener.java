@@ -11,6 +11,7 @@ public class KBListener extends KeyAdapter {
 		long calculatedTime = Math.subtractExact(System.currentTimeMillis(), lastPressProcessed);
 		System.out.println(calculatedTime);
 		if(calculatedTime > timer) { // verifica ultimo input
+			lastPressProcessed = System.currentTimeMillis(); // Guarda o tempo do ultimo input
 			switch (e.getKeyCode()) {
 			case KeyEvent.VK_RIGHT: // Se a tecla SETA DIREITA for pressionada, move a cobra pra a direita
 				if (GameHandler.dx != -1) {
@@ -51,7 +52,6 @@ public class KBListener extends KeyAdapter {
 			default:
 				break;
 			}
-            lastPressProcessed = System.currentTimeMillis(); // Guarda o tempo do ultimo input
         } 
 	}
 }

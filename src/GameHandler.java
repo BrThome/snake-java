@@ -44,7 +44,6 @@ class GameHandler extends Thread {
 			//System.out.print("HEAD x = " + ent.getHead().getX() + ", y = " + ent.getHead().getY() + "\nSIZE = " + ent.getSize() + "\nFOOD x = " + ent.getFood().getX() + ", y = " + ent.getFood().getY() + "\n");
 
 			wait(speed); // O thread na qual este objeto está sendo lidado com aguardado 'speed' millisegundos, basicamente, ele para de operar por esse tempo
-
 			gameWindow.getContentPane().removeAll(); // limpa a janela de jogo
 			//System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		}

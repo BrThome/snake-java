@@ -4,19 +4,13 @@ import java.util.Random;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-class Entities implements Serializable{
-	private Coord[] snake;
-	private int size;
-	private Coord food;
+class Entities implements Serializable{ // implementa serializavel para que possa ser salvo em um arquivo
+	private Coord[] snake; // cobrinha
+	private int size; // tamanho da dita cuja cobrinha
+	private Coord food; // comida da dita cuja cobrinha
 
 	private Random rand = new Random();
-
-	public Entities(Coord[] snake, int size, Coord food) {
-		this.snake = snake;
-		this.size = size;
-		this.food = food;
-	}
-
+	
 	public Entities() {
 		snake = new Coord [GameHandler.height * GameHandler.width];
 		size = 3;

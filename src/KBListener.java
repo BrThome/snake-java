@@ -6,42 +6,42 @@ import java.awt.event.KeyEvent;
 public class KBListener extends KeyAdapter {
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
-		case KeyEvent.VK_RIGHT: // Muda a direcao da Snake para a direita.
+		case KeyEvent.VK_RIGHT: // Se a tecla SETA DIREITA for pressionada, move a cobra pra a direita
 			if (GameHandler.dx != -1) {
 				GameHandler.dx = 1;
 				GameHandler.dy = 0;
 			}
-			break;
-		case KeyEvent.VK_UP: // Muda a direcao da Snake para cima.
+			return;
+		case KeyEvent.VK_UP: // Se a tecla SETA PARA CIMA for pressionada, move a cobra pra cima
 			if (GameHandler.dy != 1) {
 				GameHandler.dx = 0;
 				GameHandler.dy = -1;
 			}
-			break;
-		case KeyEvent.VK_LEFT: // Muda a direcao da Snake para a esquerda;
+			return;
+		case KeyEvent.VK_LEFT: // Se a tecla SETA ESQUERDA for pressionada, move a cobra pra esquerda
 			if (GameHandler.dx != 1) {
 				GameHandler.dx = -1;
 				GameHandler.dy = 0;
 			}
-		break;
-		case KeyEvent.VK_DOWN: // Muda a direcao da Snake para baixo.
+			return;
+		case KeyEvent.VK_DOWN: // Se a tecla SETA PARA BAIXO for pressionada, move a cobra pra cima
 			if (GameHandler.dy != -1) {
 				GameHandler.dx = 0;
 				GameHandler.dy = 1;
 			}
-			break;
-		case KeyEvent.VK_F1:
+			return;
+		case KeyEvent.VK_F1: // Salva o jogo ao apertar F1 
 			FileHandler.saveFile(GameHandler.ent);
-			break;
-		case KeyEvent.VK_F5:
+			return;
+		case KeyEvent.VK_F5: // Carrega o jogo ao apertar F5
 			GameHandler.ent = FileHandler.loadFile();
-			System.out.println("Loaded!!");
-			break;
-		case KeyEvent.VK_SPACE:
+			//System.out.println("Loaded!!");
+			return;
+		case KeyEvent.VK_SPACE: // Ao apertar espaço pausa o jogo
 			GameHandler.paused = !GameHandler.paused;
-			if(GameHandler.paused) System.out.println("Pause!");
-			else System.out.println("Play");
-			break;
+			//if(GameHandler.paused) System.out.println("Pause!");
+			//else System.out.println("Play");
+			return;
 		default:
 			break;
 		}
